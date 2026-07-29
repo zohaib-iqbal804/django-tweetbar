@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+Tweet page
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-4">Welcome to django project</h1>
+<h2>
+    {% if form.instance.pk %}
+    Edit tweet
+    {% else %}
+    Create tweet 
+    {% endif %}
+    <form a method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+      {{form}}
+      <button class=" btn btn-warning" type='submit' >submit</button>
+    </form>
+    <a href="{% url "tweet_list" %}"> back to tweet list</a>
+</h2>
+{% endblock %}
